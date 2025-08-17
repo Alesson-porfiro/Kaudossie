@@ -30,6 +30,13 @@ header {
     
 }
 
+.produto-highlight {
+  outline: 2px solid #E47084;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+
 .logo img {
     width: 100%;
     max-width: 300px;
