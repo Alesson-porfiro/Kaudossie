@@ -1014,70 +1014,63 @@ footer::before {
 /* Celular */
 @media (max-width: 700px) {
   .navigation {
-    position: absolute;
-    flex-direction: column; /* continua em linha */
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* tudo começa da esquerda */
-    gap: 10px;
-    flex-wrap: wrap; /* quebra de linha se não couber */
-    display: flex;
-    height: 150px;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+    height: auto; /* deixa a altura se ajustar */
+    position: relative; /* em vez de absolute */
   }
 
   .logo {
-    margin-right: 10px; /* dá um espaço da logo pros outros itens */
-    margin-left: -40px;     /* tira o -40px */
+    margin: 0 auto; /* centraliza */
+    display: none;
   }
 
-/* Menu vem primeiro */
+  /* Menu */
   .menu {
     order: 1; 
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    justify-content: flex-start;
+    justify-content: center; /* centraliza no mobile */
     width: 100%;
-    margin-left: -10px;
-    margin-top: 15px;
-    
+    margin: 0;
   }
 
-  /* Ícones logo depois do menu */
+  /* Ícones */
   .menuIcons {
     order: 2;
     display: flex;
     gap: 15px;
-    justify-content: flex-start;
+    justify-content: center; 
     width: 100%;
-    margin-left: 590px;
-    position: absolute;
-    margin-top: 49px;
+    margin: 0;
+    position: relative; /* não absolute */
   }
 
-  /* Input fica por último */
+  /* Input */
   .pesquisar {
     order: 3;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
-    margin-left: -100px;
-    margin-top: 0px;  /* ALTURA INPUT*/
-    position: absolute;
-    margin-top: 90px;
-    margin-left: 350px;
+    justify-content: center; /* centraliza o input */
+    margin: 10px 0 0 0;
+    position: relative;
   }
 
   .pesquisar input {
-    width: 100%;
+    width: 90%; /* ocupa quase toda largura da tela */
     max-width: 300px;
   }
 
-.buttonSobre {
-  position: absolute;
-  top: 758%;
-  left: 490px;
-  width: 100px;
-  height: 100px;
- 
-}
+  /* Botão */
+  .buttonSobre {
+    order: 4;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    position: relative; /* tira absolute */
+  }
 }
