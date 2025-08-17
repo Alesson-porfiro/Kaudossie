@@ -61,7 +61,7 @@ header {
 }
 
 .menu a:hover{
-    color: #ffcfe4;
+    color: #ff4081;
 }
 
 /* =========================
@@ -841,6 +841,7 @@ header {
     text-align: center;
     min-width: 160px;
     transition: transform 0.2s ease;
+    
 }
 
 .cardContato:hover {
@@ -851,11 +852,14 @@ header {
     margin: 0;
     font-size: 16px;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .cardContato p {
     margin: 5px 0 0;
     color: #d6336c;
+    text-decoration: none;
+    
     font-weight: bold;
 }
 
@@ -928,7 +932,7 @@ footer::before {
 
 .social-icons {
   margin-top: 12px;
-  
+  text-decoration: none;
 }
 
 .social-icons a {
