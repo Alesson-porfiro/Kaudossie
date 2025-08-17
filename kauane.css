@@ -1,0 +1,1083 @@
+/* =========================
+       HEADER E LOGO
+    ========================= */
+body {
+    
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+}
+
+
+.navigation {
+    display: flex;
+    align-items: center;
+    /* centraliza verticalmente */
+    justify-content: space-between;
+    /* logo à esquerda, menu à direita */
+    padding: 0 20px;
+    height: 180px;
+    /* aumenta altura para logo grande */
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #EEB8C6;
+    
+}
+
+.logo img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+}
+
+/* =========================
+       MENU
+========================= */
+.menu {
+      display: flex;
+    gap: 30px; /* diminui o espaço entre links para aproximar do input */
+    align-items: center;
+}
+
+.menu a {
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.menu a:hover{
+    color: #ffcfe4;
+}
+
+/* =========================
+       INPUT PESQUISA
+========================= */
+.pesquisar {
+   margin: 0 20px; /* espaço natural entre logo e menu */
+    
+}
+
+.pesquisar input {
+    width: 550px;
+    max-width: 100%;
+    height: 45px;
+    padding: 0 15px 0 40px;
+    /* espaço para a lupa à esquerda */
+    font-size: 18px;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+
+    /* Imagem da lupa à esquerda */
+    background-image: url('img/lupa.png');
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 12px center;
+}
+
+.pesquisar input::placeholder {
+    color: #fff;
+    opacity: 0.7;
+}
+
+.pesquisar input:focus {
+    border-color: #ff6ab7;
+    box-shadow: 0 0 10px rgba(255, 106, 183, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* =========================
+       MENU ICONS
+========================= */
+.menuIcons {
+    
+    display: flex;
+    /* ícones em linha */
+    align-items: center;
+    /* centraliza verticalmente */
+    gap: 35px;
+    /* espaço entre os ícones */
+    margin-right: 150px;
+}
+
+.menuIcons svg {
+
+    border-radius: 10px;
+    background-color: white;
+    width: 30px;
+    /* largura do ícone */
+    height: 30px;
+    /* altura do ícone */
+    cursor: pointer;
+    /* efeito de clique */
+    transition: transform 0.3s ease, fill 0.3s ease;
+    /* animação suave */
+}
+
+.menuIcons svg:hover path {
+    fill: #ff6ab7;
+    /* cor ao passar o mouse */
+    transform: scale(1.2);
+    /* aumenta levemente o ícone */
+}
+
+.pesquisar input::placeholder {
+    color: #fff;
+    opacity: 0.7;
+}
+
+.pesquisar input:focus {
+    border-color: #ff6ab7;
+    box-shadow: 0 0 10px rgba(255, 106, 183, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* =========================
+       CARRINHO DE COMPRAS
+========================= */
+.comprar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.comprar img {
+    width: 30px;   /* mesmo tamanho dos ícones sociais */
+    height: 30px;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(0) invert(1); /* deixa a imagem branca */
+}
+
+.comprar img:hover {
+    transform: scale(1.2);
+     filter: brightness(0) saturate(100%) invert(90%) sepia(8%) saturate(669%) hue-rotate(288deg) brightness(105%) contrast(96%);
+    /* cor rosa igual hover dos outros ícones */
+}
+
+
+/* =========================
+       SLIDER
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    color: white;
+    max-width: 40%;
+}
+
+.slide-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.slide-content button {
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.slide-content button:hover {
+    background-color: #ff0044;
+}
+
+/* Indicadores */
+.indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+
+.indicators div {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicators div.active {
+    background-color: #fff;
+}
+
+/* Botões de navegação */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+.section-content {
+    background-color: #ffcfe4; /* fundo rosa claro */
+    padding: 40px 20px;
+    border: 6px solid #ff66a3; /* borda rosa */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.delivery-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.delivery-text span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #915867;
+    text-align: center;
+}
+
+/* Container dos cards */
+.delivery-items {
+    display: flex;
+    justify-content: space-around; /* distribui os 3 cards */
+    flex-wrap: wrap; /* empilha em telas pequenas */
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    
+}
+
+/* Cada card */
+.delivery-card {
+    display: flex; /* imagem e texto lado a lado */
+    align-items: center;
+    gap: 15px;
+    background-color: #ffe6f0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    flex: 1 1 300px; /* responsivo */
+    max-width: 350px;
+    box-sizing: border-box;
+}
+
+/* Imagens dentro dos cards */
+.delivery-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Texto dos cards */
+.delivery-card p {
+    font-size: 5;
+    color: #915867;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Texto explicativo abaixo dos cards */
+.quartoTexto p {
+    font-size: 24px;
+    color: #915867;
+    text-align: center;
+    max-width: 800px;
+}
+
+/* Container geral dos destaques */
+.containerDestaques {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+/* Título */
+.textoDestaque span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 3px solid #e91e63;
+    padding-bottom: 5px;
+}
+
+/* Área das imagens */
+.containerDestaques > div:not(.destaquesContent) {
+    display: inline-block;
+    margin: 20px;
+    vertical-align: top;
+}
+
+/* Ajustes nas imagens */
+.containerDestaques img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efeito hover */
+.containerDestaques img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* Texto dos produtos */
+.containerDestaques p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Preço */
+.containerDestaques p:last-child {
+    font-weight: bold;
+    color: #e91e63;
+}
+
+/* PRODUTOS */
+
+/* ====== CONTAINER E GRID ====== */
+.containerProdutos {
+    width: 100%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    
+    /* Fundo com imagem */
+    background-image: url('https://i.pinimg.com/1200x/91/b2/d3/91b2d354bf7256ea3265a1a894891651.jpg'); /* caminho da sua imagem */
+    background-size: cover; /* cobre toda a área */
+    background-position: center; /* centraliza a imagem */
+    background-repeat: no-repeat; /* evita repetição */
+}
+
+.produtosContent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 por linha */
+    gap: 24px;
+    align-items: stretch;
+    margin: 100px;
+}
+
+/* ====== TÍTULO “PRODUTOS” ====== */
+.textoProdutos {
+    grid-column: 1 / -1;          /* ocupa a linha toda dentro do grid */
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #915867;               /* rosa mais escuro do seu tema */
+    margin: 0 0 8px;
+    position: relative;
+}
+.textoProdutos::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #ff66a3;          /* barra rosa abaixo do título */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* ====== CARD DO PRODUTO ====== */
+.produto {
+    background: #faf7f9;
+    border: 2px solid transparent;         /* borda aparece no hover */
+    border-radius: 14px;
+    padding: 14px 14px 16px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.produto img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform .25s ease;
+}
+
+.nomeProduto {
+    font-size: 16px;
+    font-weight: 700;
+    color: #3a3a3a;
+    margin: 12px 0 4px;
+}
+
+.precoProduto {
+    font-size: 15px;
+    font-weight: 800;
+    color: #ff4081;
+    margin-bottom: 12px;
+}
+
+/* ====== BOTÃO “COMPRAR” ====== */
+.btnComprar {
+    background: #ff4081;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .25s ease, transform .1s ease, box-shadow .25s ease;
+    box-shadow: 0 4px 10px rgba(255,64,129,0.25);
+}
+
+/* ====== HOVER/ACTIVE ====== */
+.produto:hover {
+    transform: translateY(-6px);
+    border-color: #ff66a3;                     /* borda rosa no hover */
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+.produto:hover img {
+    transform: scale(1.03);
+}
+.btnComprar:hover {
+    background: #e91e63;
+    box-shadow: 0 8px 18px rgba(233,30,99,0.35);
+}
+.btnComprar:active {
+    transform: translateY(1px);
+}
+
+/* ====== PEDIDOS ====== */
+
+.containerPedidos {
+    background: #fff0f6;
+    padding: 40px 20px;
+    text-align: center; /* centraliza tudo */
+}
+
+.pedidosContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px; /* espaço pro botão */
+
+     /* Fundo com imagem */
+    background-image: url('https://i.pinimg.com/1200x/9e/c5/e7/9ec5e7417435facc3e75e6f4d2c566b9.jpg'); /* caminho da sua imagem */
+    background-size: cover; /* cobre toda a área */
+    background-position: center; /* centraliza a imagem */
+    background-repeat: no-repeat; /* evita repetição */
+}
+
+.cardPedido {
+    background: #E47084;
+    padding: 20px 30px;
+    border-radius: 14px;
+    text-align: center;
+    max-width: 280px;
+}
+
+.cardPedido .numero {
+    display: block;
+    font-size: 58px;
+    font-weight: 800;
+    color: #ff4081;
+}
+
+.cardPedido .numero small {
+    font-size: 58px;
+    font-weight: bold;
+}
+
+.numero-container {
+    display: inline-flex; /* mantém todos em linha */
+    align-items: baseline; /* alinha +, número e mil pela linha de base */
+    gap: 5px; /* espaço entre os elementos */
+    color: #ff4081;
+    font-weight: 800;
+}
+
+.numero-container .mais {
+    font-size: 40px; /* tamanho do + */
+    font-weight: bold;
+}
+
+.numero-container .numero {
+    font-size: 58px; /* tamanho do número */
+    font-weight: 800;
+}
+
+.numero-container .texto {
+    font-size: 36px; /* tamanho do 'mil' */
+    font-weight: 600;
+}
+
+
+.cardPedido p {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* BOTÃO WHATSAPP */
+.buttonPedidos {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonPedidos button {
+    margin-top: 50px; /* desce só o botão */
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: background 0.25s ease, transform 0.1s ease;
+}
+
+.buttonPedidos button {
+    background-color: #E47084;
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    /* Sombra inicial */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    
+    /* Transição suave para hover */
+    transition: background 0.25s ease, transform 0.1s ease, box-shadow 0.25s ease;
+}
+
+.buttonPedidos button:hover {
+    background-color: #d55b70;
+    
+    /* Sombra maior no hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.buttonPedidos button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+
+/* SOBRE */
+.containerSobre {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px 0 20px; /* sem padding-bottom */
+    background-color: #fff0f6;
+    text-align: center;
+
+    background-image: url('https://i.pinimg.com/1200x/9e/c5/e7/9ec5e7417435facc3e75e6f4d2c566b9.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.contentSobre {
+    display: flex;
+    flex-direction: column; /* empilha os textos verticalmente */
+    gap: 15px;
+    max-width: 600px; /* limita a largura do texto */
+    align-items: center; /* centraliza o conteúdo do bloco */
+}
+
+/* Texto “Sobre a” maior e centralizado */
+.textoSobre span {
+    font-size: 52px;
+    font-weight: 700;
+    color: #ff4081;
+    display: inline-block; /* necessário para aplicar margin vertical */
+}
+
+/* Nome da empresa */
+.nomeSore {
+    font-size: 40px; /* aumentei a fonte */
+    font-weight: 800;
+    color: #333;
+}
+
+/* Texto descritivo */
+.maiorTextoSobre span {
+    font-size: 24px; /* aumentei um pouco */
+    text-align: justify;
+    color: #555;
+   
+}
+
+/* Foto ao lado do texto */
+.fotoSobre img {
+    max-width: 450px;
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+/* botão centralizado, sem margin nem padding extra */
+.buttonSobre {
+    display: flex;
+    justify-content: center;
+   
+    padding: 0; /* remove padding */
+    background: #EEB8C6
+    
+}
+
+
+/* botão estilizado */
+.buttonSobre button {
+    transform: translateX(-250px);
+    margin-top: 50px; /* desce só o botão */
+    background-color: #E47084;
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: background 0.25s ease, transform 0.1s ease, box-shadow 0.25s ease;
+}
+
+.buttonSobre button:hover {
+    background-color: #d55b70;
+    
+    /* Sombra maior no hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.buttonSobre button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+/* ================= CLIENTES ================= */
+.container {
+    margin-bottom: 0; /* zera espaço embaixo dos cards */
+    padding-bottom: 20px; /* se quiser só um respiro */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 20px;
+    background: #EEB8C6;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #F4C9D6; /* tom mais claro de rosa */
+    border-radius: 20px;
+    padding: 30px 20px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+/* Ícone (medalha 🏅) */
+.card .icon {
+    font-size: 32px;
+    color: #915867;
+    margin-bottom: 15px;
+}
+
+/* Texto */
+.card .text {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 15px;
+    line-height: 1.4em;
+}
+
+/* Estrelas */
+.card .stars {
+    font-size: 18px;
+    color: #FFD700; /* dourado */
+    margin-bottom: 15px;
+}
+
+/* Foto do cliente */
+.card .photo {
+    margin: 0 auto 12px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #915867;
+}
+
+.card .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Nome */
+.card .name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+}
+
+.mapa-container {
+    position: relative; /* permite usar absolute dentro */
+    margin-top: 0px;   /* espaço pra não colar demais nos clientes */
+    
+}
+
+.contatos {
+    position: absolute;
+    top: -40px;             /* sobe as caixinhas para ficarem “encaixadas” */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 10;            /* garante que fiquem acima do iframe */
+}
+
+.cardContato {
+    background: #fff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    text-align: center;
+    min-width: 160px;
+    transition: transform 0.2s ease;
+}
+
+.cardContato:hover {
+    transform: scale(1.05);
+}
+
+.cardContato h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cardContato p {
+    margin: 5px 0 0;
+    color: #d6336c;
+    font-weight: bold;
+}
+
+/* Importando fontes Google */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@600;700&display=swap');
+
+footer {
+  background: #EEB8C6; /* rosa */
+  color: #fff;
+  text-align: center;
+  position: relative;
+  padding: 70px 20px 30px;
+  font-family: "Nunito", sans-serif;
+}
+
+/* Onda no topo */
+footer::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: radial-gradient(circle at 15px 30px, #EEB8C6 15px, transparent 16px) repeat-x;
+  background-size: 30px 30px;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+.footer-logo img {
+  max-width: 180px;
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.footer-info {
+  text-align: left;
+  font-family: "Nunito", sans-serif;
+}
+
+.footer-info h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #FFDCC8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-info p {
+  margin: 5px 0;
+  font-size: 22px;
+  line-height: 1.6;
+  font-weight: 200;
+  opacity: 0.9;
+}
+
+.social-icons {
+  margin-top: 12px;
+  
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #ffdeec;
+}
+
+.copyright {
+  margin-top: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+  font-family: "Nunito", sans-serif;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 900px) {
+  .footer-container {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-info {
+    text-align: center;
+  }
+}
+
+/* RESPONSIVO */
+@media (max-width: 992px) {
+    .containerSobre {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .fotoSobre img {
+        max-width: 80%;
+    }
+}
+
+
+/* ===== RESPONSIVO PEDIDOS ===== */
+@media (max-width: 768px) {
+    .pedidosContent {
+        flex-direction: column;
+        align-items: center; /* centraliza os cards horizontalmente */
+    }
+}
+
+
+/* ====== RESPONSIVO PRODUTOS ====== */
+@media (max-width: 1024px) {
+    .produtosContent { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .produtosContent { grid-template-columns: 1fr; }
+    .textoProdutos { font-size: 1.6rem; }
+}
+
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .menu a {
+    font-size: 20px;
+  }
+  .logo img {
+    max-width: 180px;
+  }
+  .pesquisar input {
+    max-width: 400px;
+  }
+}
+
+/* Celular */
+@media (max-width: 700px) {
+  .navigation {
+    position: absolute;
+    flex-direction: column; /* continua em linha */
+    align-items: center;
+    justify-content: flex-start; /* tudo começa da esquerda */
+    gap: 10px;
+    flex-wrap: wrap; /* quebra de linha se não couber */
+    display: flex;
+    height: 150px;
+  }
+
+  .logo {
+    margin-right: 10px; /* dá um espaço da logo pros outros itens */
+    margin-left: -40px;     /* tira o -40px */
+  }
+
+/* Menu vem primeiro */
+  .menu {
+    order: 1; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: -10px;
+    margin-top: 15px;
+    
+  }
+
+  /* Ícones logo depois do menu */
+  .menuIcons {
+    order: 2;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 590px;
+    position: absolute;
+    margin-top: 49px;
+  }
+
+  /* Input fica por último */
+  .pesquisar {
+    order: 3;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: -100px;
+    margin-top: 0px;  /* ALTURA INPUT*/
+    position: absolute;
+    margin-top: 90px;
+    margin-left: 350px;
+  }
+
+  .pesquisar input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+.buttonSobre {
+  position: absolute;
+  top: 758%;
+  left: 490px;
+  width: 100px;
+  height: 100px;
+ 
+}
+}
