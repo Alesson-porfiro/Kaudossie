@@ -1068,7 +1068,7 @@ footer::before {
   /* Botão */
   .buttonSobre {
     order: 4;
-    display: flex;
+    display: none;
     justify-content: center;
     margin: 20px auto;
     position: relative; /* tira absolute */
