@@ -774,17 +774,20 @@ header {
 
 /* Ícone (medalha 🏅) */
 .card .icon {
-    font-size: 32px;
+    font-size: 52px;
     color: #915867;
     margin-bottom: 15px;
 }
 
-/* Texto */
+/* Texto mais suave e sofisticado */
 .card .text {
     font-size: 15px;
-    color: #444;
-    margin-bottom: 15px;
-    line-height: 1.4em;
+    color: #555;              /* Cinza mais suave e elegante */
+    margin-bottom: 18px;
+    line-height: 1.6em;       /* Mais espaçamento entre linhas */
+    font-style: italic;       /* Toque de suavidade */
+    letter-spacing: 0.3px;    /* Pequeno espaçamento entre letras */
+    text-align: center;       /* Centralizado para dar equilíbrio */
 }
 
 /* Estrelas */
