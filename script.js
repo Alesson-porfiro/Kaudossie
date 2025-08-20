@@ -101,4 +101,105 @@ let index = 0;
   aplicarBusca('');
 });
 
+// Seleciona produtos e carrinho
+const products = document.querySelectorAll('.produto');
+const cartButton = document.getElementById('cartButton');
+const cartModal = document.getElementById('cartModal');
+const closeCart = document.getElementById('closeCart');
+const cartItems = document.getElementById('cartItems');
+const cartTotal = document.getElementById('cartTotal');
+const cartCount = document.getElementById('cartCount');
 
+let cart = [];
+
+// Abre/fecha o modal ao clicar no carrinho
+cartButton.addEventListener("click", (e) => {
+    e.stopPropagation(); // evita que o clique propague para a janela
+    cartModal.style.display = "block";
+});
+
+// Fecha o modal ao clicar no botão
+closeCart.addEventListener("click", () => {
+    cartModal.style.display = "none";
+});
+
+// Fecha o modal ao clicar fora dele
+window.addEventListener("click", (e) => {
+    if (cartModal.style.display === "block" && !cartModal.contains(e.target) && e.target !== cartButton && !cartButton.contains(e.target)) {
+        cartModal.style.display = "none";
+    }
+});
+
+// Adiciona produto ao carrinho
+products.forEach(product => {
+    const btn = product.querySelector('.btnComprar');
+    btn.addEventListener('click', () => {
+        const nome = product.querySelector('.nomeProduto').textContent;
+        const preco = parseFloat(product.querySelector('.precoProduto').textContent.replace('R$', '').replace(',', '.'));
+        const existing = cart.find(item => item.nome === nome);
+
+        if(existing){
+            existing.quantidade += 1;
+        } else {
+            cart.push({nome, preco, quantidade: 1});
+        }
+
+        updateCartUI();
+    });
+});
+
+// Atualiza interface do carrinho
+function updateCartUI() {
+    cartItems.innerHTML = '';
+    let total = 0;
+    let count = 0;
+
+    cart.forEach(item => {
+        total += item.preco * item.quantidade;
+        count += item.quantidade;
+
+        const li = document.createElement('li');
+        li.textContent = `${item.nome} x${item.quantidade} - R$ ${ (item.preco * item.quantidade).toFixed(2) }`;
+        
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remover';
+        removeBtn.onclick = () => {
+            cart = cart.filter(i => i.nome !== item.nome);
+            updateCartUI();
+        };
+        
+        li.appendChild(removeBtn);
+        cartItems.appendChild(li);
+    });
+
+    cartTotal.textContent = total.toFixed(2);
+    cartCount.textContent = count;
+}
+
+// Abrir e fechar modal
+cartButton.addEventListener('click', () => {
+    cartModal.style.display = 'block';
+});
+
+closeCart.addEventListener('click', () => {
+    cartModal.style.display = 'none';
+});
+
+const sendCartButton = document.getElementById("sendCart");
+const cartItemsList = document.getElementById("cartItems");
+
+
+// Enviar pedido para WhatsApp
+sendCartButton.addEventListener('click', () => {
+    if (cart.length === 0) return alert('O carrinho está vazio!');
+
+    let message = 'Olá! Gostaria de fazer o pedido:\n';
+    cart.forEach((item, i) => {
+        message += `${i + 1}. ${item.nome} x${item.quantidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}\n`;
+    });
+    message += `Total: R$ ${cartTotal.textContent}`;
+
+    const phone = '5511962048118';
+    const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+});

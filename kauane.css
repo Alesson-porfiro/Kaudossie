@@ -14,6 +14,122 @@ header {
   background: #fff;
 }
 
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 22%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 350px;
+    max-width: 90%;
+    background: #FFE6ED; /* rosa suave de fundo */
+    border-left: 4px solid #915867; /* destaque elegante */
+    border-radius: 12px 0 0 12px;
+    padding: 20px;
+    box-shadow: -4px 4px 20px rgba(0,0,0,0.2);
+    z-index: 10000;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Título */
+.cart-modal h2 {
+    margin-top: 0;
+    font-size: 1.6rem;
+    color: #915867;
+    text-align: center;
+    border-bottom: 2px solid #915867;
+    padding-bottom: 10px;
+}
+
+/* Lista de itens */
+.cart-modal ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.cart-modal ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    background: #FFD6E0;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* Botão remover */
+.cart-modal ul li button {
+    background: #915867;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 0.85rem;
+}
+
+.cart-modal ul li button:hover {
+    background: #7a425b;
+}
+
+/* Total */
+.cart-modal p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 15px;
+    color: #915867;
+}
+
+/* Fechar botão */
+.cart-modal #closeCart {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #915867;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+/* Fechar botão */
+.cart-modal #sendCart {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #915867;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.cart-modal #closeCart:hover {
+    background: #7a425b;
+}
+
+#cartCount {
+    background-color: #915867;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+    position:relative;
+    top: -5px;
+    right: -5px;
+}
 
 .navigation {
     display: flex;
@@ -1012,18 +1128,74 @@ footer::before {
 }
 
 
+
 /* Tablet */
 @media (max-width: 1000px) {
-  .menu a {
-    font-size: 20px;
+
+  .navigation {
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 20px;
+    align-items: center;    /* centraliza na vertical */
+    display: flex;
   }
+
+  /* Logo */
   .logo img {
-    max-width: 180px;
+    max-width: 150px;
+  }
+
+  /* Menu */
+  .menu {
+    flex: 1;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;        /* quebra links em mais linhas se faltar espaço */
+    margin-top: -200px;
+    margin-right: 280px;
+  }
+  .menu a {
+    font-size: 18px;
+  }
+
+  /* Barra de pesquisa */
+  .pesquisar {
+    flex: 1 1 100%;         /* força quebrar linha */
+    display: flex;
+    justify-content: center;
+    margin-top: -290px;
+    margin-right: 290px;
   }
   .pesquisar input {
-    max-width: 400px;
+    width: 100%;
+    max-width: 350px;
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+
+  .pesquisar input::placeholder {
+  padding-left: 40px; /* empurra o texto */
+}
+
+  /* Ícones */
+  .menuIcons {
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;        /* se faltar espaço quebra certinho */
+    width: 100%;            /* ocupa linha inteira */
+    margin-top: -150px;
+    margin-right: 290px;
+  }
+
+  /* Botão */
+  .buttonSobre {
+    display: flex;
+    justify-content: center;
+    margin: 15px auto 0 auto;
   }
 }
+
 
 /* Celular */
 @media (max-width: 700px) {
